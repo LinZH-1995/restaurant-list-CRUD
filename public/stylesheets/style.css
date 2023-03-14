@@ -99,3 +99,7 @@ header {
   }
 
 }
+
+.form-title, .form-input-area {
+  margin-bottom: 2.5rem;
+}

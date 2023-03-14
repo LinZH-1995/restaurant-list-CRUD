@@ -28,6 +28,15 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+app.get('/restaurants/new', (req, res) => {
+  Restaurant.find()
+  .lean()
+  .then(restaurants => {
+    return Number(restaurants[restaurants.length - 1].id)
+    })
+  .then(id => res.render('new', {ID: id + 1}))
+})
+
 app.get('/restaurants/:id/detail', (req, res) => {
   const id = req.params.id
   return Restaurant.findOne({id: id})
