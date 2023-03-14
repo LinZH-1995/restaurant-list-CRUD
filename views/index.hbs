@@ -31,7 +31,7 @@
                 <h6 class="card-title mb-2">{{this.name}}</h6>
 
                 <div class="restaurant-category mb-2">
-                  <i class="fas fa-utensils pr-2 me-1"></i> {{this.category}}
+                  <i class="fas fa-utensils me-1"></i> {{this.category}}
                 </div>
 
                 <span class="badge badge-pill text-bg-danger font-weight-normal mb-3">
@@ -43,15 +43,12 @@
 
             <div class="card-footer text-muted bg-transparent d-flex justify-content-end mb-0">
               <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                <a href="/restaurants/{{this.id}}/edit">
-                  <button type="button" class="btn bg-transparent border border-0 me-2">
-                    <i class="fas fa-edit text-primary"></i>
-                  </button>
+                <a href="/restaurants/{{this.id}}/edit" class="text-decoration-none" style="margin-right: 2.5rem;">
+                  <i class="fas fa-edit text-primary"></i>
                 </a>
-                <button type="button" class="btn bg-transparent border border-0" data-bs-toggle="modal"
-                  data-bs-target="#deleteModal{{this.id}}">
+                <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#deleteModal{{this.id}}">
                   <i class="fas fa-trash-alt text-danger"></i>
-                </button>
+                </a>
               </div>
             </div>
           </div>

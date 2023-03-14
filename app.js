@@ -28,6 +28,14 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+app.get('/restaurants/:id/detail', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findOne({id: id})
+    .lean()
+    .then(restaurant => res.render('detail', { restaurant }))
+    .catch(error => console.error(error))
+})
+
 app.listen(port, () => {
   console.log(`Now Server is working on localhost:${port} !`)
 })
