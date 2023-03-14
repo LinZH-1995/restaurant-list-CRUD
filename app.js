@@ -38,7 +38,7 @@ app.get('/restaurants/new', (req, res) => {
       }, 0)
       return targetID
     })
-    .then(id => res.render('new', {ID: id + 1}))
+    .then(id => res.render('new', { ID: id + 1 }))
     .catch(error => console.error(error))
 })
 
@@ -94,7 +94,31 @@ app.post('/restaurants/:id/edit', (req, res) => {
     })
     .then(() => res.redirect(`/restaurants/${id}/detail`))
     .catch(error => console.error(error))
+})
 
+app.post('/restaurant/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findOne({ id })
+    .then(restaurant => {
+      restaurant.deleteOne()
+    })
+    .then(() => {
+      Restaurant.find()
+      .then(restaurants => {
+        restaurants.forEach(restaurant => {
+          if (restaurant.id > id) {
+            restaurant.id = (Number(restaurant.id) - 1).toString()
+          }
+        })
+        restaurants.forEach(restaurant => {
+          const newData = new Restaurant(restaurant)
+          newData.save()
+        })
+      })
+      
+    })
+    .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
 })
 
 app.listen(port, () => {
