@@ -35,6 +35,24 @@ app.get('/restaurants/new', (req, res) => {
     return Number(restaurants[restaurants.length - 1].id)
     })
   .then(id => res.render('new', {ID: id + 1}))
+  .catch(error => console.error(error))
+})
+
+app.post('/restaurants', (req, res) => {
+  const newData = req.body
+  return Restaurant.create({
+    id: newData.id,
+    name: newData.name,
+    category: newData.category,
+    image: newData.image,
+    location: newData.location,
+    phone: newData.phone,
+    google_map: newData.google_map,
+    rating: Number(newData.rating),
+    description: newData.description
+  })
+    .then(() => res.redirect('/'))
+    .catch(error => console.error(error))
 })
 
 app.get('/restaurants/:id/detail', (req, res) => {
