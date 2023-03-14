@@ -29,13 +29,17 @@ app.get('/', (req, res) => {
 })
 
 app.get('/restaurants/new', (req, res) => {
-  Restaurant.find()
-  .lean()
-  .then(restaurants => {
-    return Number(restaurants[restaurants.length - 1].id)
+  return Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      const targetID = restaurants.reduce((acc, cur) => {
+        const id = Math.max(acc, Number(cur.id))
+        return id
+      }, 0)
+      return targetID
     })
-  .then(id => res.render('new', {ID: id + 1}))
-  .catch(error => console.error(error))
+    .then(id => res.render('new', {ID: id + 1}))
+    .catch(error => console.error(error))
 })
 
 app.post('/restaurants', (req, res) => {
@@ -57,10 +61,40 @@ app.post('/restaurants', (req, res) => {
 
 app.get('/restaurants/:id/detail', (req, res) => {
   const id = req.params.id
-  return Restaurant.findOne({id: id})
+  return Restaurant.findOne({ id: id })
     .lean()
     .then(restaurant => res.render('detail', { restaurant }))
     .catch(error => console.error(error))
+})
+
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findOne({ id: id })
+    .lean()
+    .then(restaurant => res.render('edit', { restaurant }))
+    .catch(error => console.error(error))
+
+})
+
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  const newData = new Restaurant(req.body)
+  return Restaurant.findOne({ id: id })
+    .then(restaurant => {
+      restaurant.id = id
+      restaurant.name = newData.name
+      restaurant.category = newData.category
+      restaurant.image = newData.image
+      restaurant.location = newData.location
+      restaurant.phone = newData.phone
+      restaurant.google_map = newData.google_map
+      restaurant.rating = newData.rating
+      restaurant.description = newData.description
+      return restaurant.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}/detail`))
+    .catch(error => console.error(error))
+
 })
 
 app.listen(port, () => {
