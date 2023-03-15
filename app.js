@@ -28,6 +28,22 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 })
 
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  // restaurantList.results.name
+  // restaurantList.results.name_en
+  // restaurantList.results.category
+  return Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      return restaurants.filter(restaurant => {
+        return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase())
+      })
+    })
+    .then(searchResult => res.render('index', { restaurants: searchResult, keyword: keyword }))
+    .catch(error => console.error(error))
+})
+
 app.get('/restaurants/new', (req, res) => {
   return Restaurant.find()
     .lean()
