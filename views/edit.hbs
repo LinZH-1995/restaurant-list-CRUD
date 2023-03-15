@@ -33,26 +33,27 @@
 
           <div class="form-input-area">
             <select class="form-select" name="category" id="category">
-              <option value="{{restaurant.category}}">--請選擇一種餐廳類別--</option>
-              <option>英式下午茶</option>
-              <option>路邊攤小吃</option>
-              <option>義式料理</option>
-              <option>法式料理</option>
-              <option>美式料理</option>
-              <option>日式料理</option>
-              <option>中式料理</option>
-              <option>越式料理</option>
-              <option>泰式料理</option>
-              <option>韓式料理</option>
-              <option>港式料理</option>
-              <option>印度小吃</option>
-              <option>速食店</option>
-              <option>烘焙館</option>
-              <option>咖啡廳</option>
-              <option>素食</option>
-              <option>酒吧</option>
-              <option>夜市</option>
-              <option>其他</option>
+              <option value="">--請選擇一種餐廳類別--</option>
+              <option {{#compare restaurant.category '===' '英式下午茶'}}selected{{/compare}}>英式下午茶</option>
+              <option {{#compare restaurant.category '===' '路邊攤小吃'}}selected{{/compare}}>路邊攤小吃</option>
+              <option {{#compare restaurant.category '===' '義式料理'}}selected{{/compare}}>義式料理</option>
+              <option {{#compare restaurant.category '===' '美式料理'}}selected{{/compare}}>美式料理</option>
+              <option {{#compare restaurant.category '===' '日式料理'}}selected{{/compare}}>日式料理</option>
+              <option {{#compare restaurant.category '===' '法式料理'}}selected{{/compare}}>法式料理</option>
+              <option {{#compare restaurant.category '===' '中式料理'}}selected{{/compare}}>中式料理</option>
+              <option {{#compare restaurant.category '===' '越式料理'}}selected{{/compare}}>越式料理</option>
+              <option {{#compare restaurant.category '===' '泰式料理'}}selected{{/compare}}>泰式料理</option>
+              <option {{#compare restaurant.category '===' '韓式料理'}}selected{{/compare}}>韓式料理</option>
+              <option {{#compare restaurant.category '===' '港式料理'}}selected{{/compare}}>港式料理</option>
+              <option {{#compare restaurant.category '===' '印度小吃'}}selected{{/compare}}>印度小吃</option>
+              <option {{#compare restaurant.category '===' '中東料理' }}selected{{/compare}}>中東料理</option>
+              <option {{#compare restaurant.category '===' '速食店'}}selected{{/compare}}>速食店</option>
+              <option {{#compare restaurant.category '===' '烘焙館'}}selected{{/compare}}>烘焙館</option>
+              <option {{#compare restaurant.category '===' '咖啡廳'}}selected{{/compare}}>咖啡廳</option>
+              <option {{#compare restaurant.category '===' '素食'}}selected{{/compare}}>素食</option>
+              <option {{#compare restaurant.category '===' '酒吧'}}selected{{/compare}}>酒吧</option>
+              <option {{#compare restaurant.category '===' '夜市'}}selected{{/compare}}>夜市</option>
+              <option {{#compare restaurant.category '===' '其他'}}selected{{/compare}}>其他</option>
             </select>
           </div>
 
