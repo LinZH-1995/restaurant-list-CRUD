@@ -12,8 +12,9 @@ db.on('error', () => {
 
 db.once('open', () => {
   console.log('MongoDB already connected !')
+  restaurantSeeds.forEach(seed => {
+    Restaurant.create(seed)
+  })
+  console.log('Seeds already import !')
 })
 
-restaurantSeeds.forEach(seed => {
-  Restaurant.create(seed)
-})
