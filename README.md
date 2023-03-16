@@ -10,6 +10,7 @@ A simple restaurant list made by [Express](https://expressjs.com/) on [Node.js](
 * [Express-Hanlebars](https://github.com/express-handlebars/express-handlebars) - version 7.0.2
 * [MongoDB](https://www.mongodb.com/try/download/community) - version 6.0.4
 * [Mongoose](https://mongoosejs.com/) - version 7.0.1
+* [Method-Override](https://github.com/expressjs/method-override#readme) - version 3.0.0
 
 ## Feature
 **Add Restaurant**
