@@ -1,21 +1,11 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
-const mongoose = require('mongoose')
-const Restaurant = require('./models/restaurant.js')
+
 const routes = require('./routes')
+require('./config/mongoose.js')
+
 const app = express()
 const port = 3000
-
-mongoose.connect('mongodb://127.0.0.1:27017/restaurants')
-const db = mongoose.connection
-
-db.on('error', () => {
-  console.log('MongoDB connect fail !')
-})
-
-db.once('open', () => {
-  console.log('MongoDB already connected !')
-})
 
 app.engine('hbs', exphbs.engine({ defaultLayout: 'main', extname: '.hbs', helpers: require('./hbs-helper.js') }))
 app.set('view engine', 'hbs')
