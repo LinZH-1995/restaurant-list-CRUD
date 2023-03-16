@@ -7,14 +7,14 @@
     <form id="form" action="/restaurants/{{restaurant.id}}/edit" method="POST" novalidate>
 
       <div class="form-group row mb-4">
-        <label for="id" class="col-sm-2 col-form-label">No. {{restaurant.id}}</label>
+        <label for="id" class="col-sm-2 col-form-label" style="font-weight: bold;">No. {{restaurant.id}}</label>
         <div class="col-sm-8">
           <input type="hidden" class="form-control" name="id" id="id" value="{{restaurant.id}}" required>
         </div>
       </div>
 
       <div class="form d-flex mb-5">
-        <div class="d-flex flex-column" style="margin-right: 1.5rem;">
+        <div class="d-flex flex-column" style="margin-right: 1.5rem; font-weight: bold;">
           <label for="name" class="col-auto col-form-label form-title">Name：</label>
           <label for="category" class="col-auto col-form-label form-title">Category：</label>
           <label for="image" class="col-auto col-form-label form-title">Image：</label>
@@ -79,7 +79,7 @@
 
           <div class="form-input-area">
             <input type="number" class="form-control" name="rating" id="rating" min="0" max="5" step="0.1"
-              value="{{restaurant.rating}}" required>
+              value="{{restaurant.rating}}" placeholder="0.0 ~ 5.0" required>
           </div>
 
           <div class="form-input-area">
@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <div class="col-12" style="margin-bottom: 15rem;">
+      <div class="col-12" style="margin-bottom: 2rem;">
         <button id="submitButton" class="btn btn-primary" type="submit" style="margin-right: 1rem;">Submit</button>
         <button id="deleteButton" class="btn btn-danger" type="button" data-bs-toggle="modal"
           data-bs-target="#deleteModal{{restaurant.id}}">
