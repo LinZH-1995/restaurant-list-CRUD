@@ -50,7 +50,7 @@ router.get('/:id/edit', (req, res) => {
 
 })
 
-router.post('/:id/edit', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const newData = new Restaurant(req.body)
   return Restaurant.findOne({ id: id })
@@ -70,7 +70,7 @@ router.post('/:id/edit', (req, res) => {
     .catch(error => console.error(error))
 })
 
-router.post('/:id/delete', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findOne({ id })
     .then(restaurant => {

@@ -4,7 +4,7 @@
   </a>
 
   <div class="form-wrapper w-75 m-auto mt-5">
-    <form id="form" action="/restaurants/{{restaurant.id}}/edit" method="POST" novalidate>
+    <form id="form" action="/restaurants/{{restaurant.id}}?_method=PUT" method="POST" novalidate>
 
       <div class="form-group row mb-4">
         <label for="id" class="col-sm-2 col-form-label" style="font-weight: bold;">No. {{restaurant.id}}</label>
@@ -111,7 +111,7 @@
           </div>
           <div class="modal-footer">
             <small>make sure you want to delete ! this can't be undo !</small>
-            <form action="/restaurants/{{restaurant.id}}/delete" method="POST">
+            <form action="/restaurants/{{restaurant.id}}?_method=DELETE" method="POST">
               <button type="submit" name="deletebtn" value="yes" class="btn btn-primary ms-5">Yes</button>
             </form>
             <button type="button" name="deletebtn" value="no" class="btn btn-secondary"
