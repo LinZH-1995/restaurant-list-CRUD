@@ -16,13 +16,13 @@
   <header>
     <!-- navigation -->
     <nav class="navbar navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="/">
+      <div class="container" style="position: relative;">
+        <a class="navbar-brand" href="/" style="position: relative; left: 100px;">
           <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
             width="30" height="30" class="d-inline-block align-top" alt="我的餐廳清單">
           我的餐廳清單
         </a>
-        <a class="navbar-brand fs-4" href="/restaurants/new">
+        <a class="navbar-brand fs-4" href="/restaurants/new" style="position: absolute; right: 125px;">
           <i class="far fa-plus-square"></i>
         </a>
       </div>
@@ -31,7 +31,21 @@
     <div class="banner"></div>
   </header>
 
-  {{{body}}}
+  <main>
+    <div class="btn-group" style="position: absolute; right: 478px; top: 423px; z-index: 999;">
+      <button class="btn btn-dark bg-transparent text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        排序方式
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/restaurants/sort/A-Z">名稱 ( A <i class="fas fa-arrow-right"></i> Z )</a></li>
+        <li><a class="dropdown-item" href="/restaurants/sort/Z-A">名稱 ( Z <i class="fas fa-arrow-right"></i> A )</a></li>
+        <li><a class="dropdown-item" href="/restaurants/sort/category">類別 ( category )</a></li>
+        <li><a class="dropdown-item" href="/restaurants/sort/rating">評分 ( rating <i class="fas fa-star"></i> )</a></li>
+      </ul>
+    </div>
+    {{{body}}}
+  </main>
 
   <script src="/javascripts/jquery-3.3.1.js"></script>
   <script src="/javascripts/bootstrap.bundle.js"></script>

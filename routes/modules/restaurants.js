@@ -66,4 +66,37 @@ router.delete('/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
+router.get('/sort/:condition', (req, res) => {
+  const condition = req.params.condition
+  switch (condition) {
+    case 'A-Z':
+      return Restaurant.find()
+        .lean()
+        .sort({ name: 'asc' })
+        .then(restaurants => res.render('index', { restaurants }))
+        .catch(error => console.error(error))
+
+    case 'Z-A':
+      return Restaurant.find()
+        .lean()
+        .sort({ name: 'desc' })
+        .then(restaurants => res.render('index', { restaurants }))
+        .catch(error => console.error(error))
+
+    case 'category':
+      return Restaurant.find()
+        .lean()
+        .sort({ category: 'asc' })
+        .then(restaurants => res.render('index', { restaurants }))
+        .catch(error => console.error(error))
+
+    case 'rating':
+      return Restaurant.find()
+        .lean()
+        .sort({ rating: 'desc' })
+        .then(restaurants => res.render('index', { restaurants }))
+        .catch(error => console.error(error))
+  }
+})
+
 module.exports = router
