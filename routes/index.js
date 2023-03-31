@@ -1,12 +1,12 @@
 const express = require('express')
-const { route } = require('./modules/homePage.js')
 const router = express.Router()
 const homePage = require('./modules/homePage.js')
 const restaurants = require('./modules/restaurants.js')
 const users = require('./modules/users.js')
+const { authenticator } = require('../middleware/auth.js')
 
-router.use('/restaurants', restaurants)
+router.use('/restaurants', authenticator, restaurants)
 router.use('/users', users)
-router.use('/', homePage)
+router.use('/', authenticator, homePage)
 
 module.exports = router
