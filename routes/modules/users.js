@@ -20,9 +20,17 @@ router.get('/register', (req, res) => {
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
 
+  if (password !== confirmPassword) {
+    const error = 'Password 與 Confirm Password 必須一致！'
+    return res.render('register', { name, email, password, confirmPassword, error })
+  }
+
   return User.findOne({ email })
     .then(user => {
-      if (user) return res.render('register', { name, email, password, confirmPassword })
+      if (user) {
+        const error = 'Email 已經註冊過了。'
+        return res.render('register', { name, email, password, confirmPassword, error })
+      }
 
       return User.create({ name, email, password })
         .then(() => res.redirect('/'))
@@ -35,6 +43,7 @@ router.get('/logout', (req, res) => {
   req.logout((err) => {
     if (err) { return next(err) }
 
+    req.flash('success_msg', '已成功登出！')
     res.redirect('/users/login')
   })
 })
