@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const expSession = require('express-session')
 
+const usePassport = require('./config/passport.js')
 const routes = require('./routes')
 require('./config/mongoose.js')
 
@@ -20,6 +21,7 @@ app.use(expSession({
   resave: false,
   saveUninitialized: true
 }))
+usePassport(app)
 
 app.use(routes)
 
