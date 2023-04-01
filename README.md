@@ -67,12 +67,13 @@ npm run dev   // Nodemon
 http://localhost:3000/
 ```
 #### 7. Login / Register
-**User1**
+##### **Users for test：**
+User1
 ```
 Email: user1@example.com
 Password: 12345678
 ```
-**User2**
+User2
 ```
 Email: user2@example.com
 Password: 12345678
