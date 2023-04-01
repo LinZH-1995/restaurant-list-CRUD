@@ -3,7 +3,23 @@
   <div class="search-bar-outer">
     <div class="search-bar-inner">
       <form action="/search">
-        <h4 class="mb-2">尋找餐廳：</h4>
+      <div class="title d-flex justify-content-between align-items-center">
+        <h4 class="mb-2">
+          尋找餐廳：
+          </h4>
+          <div class="btn-group mb-2">
+            <button class="btn btn-dark bg-transparent text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              排序方式
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/restaurants/sort/A-Z">名稱 ( A <i class="fas fa-arrow-right"></i> Z )</a></li>
+              <li><a class="dropdown-item" href="/restaurants/sort/Z-A">名稱 ( Z <i class="fas fa-arrow-right"></i> A )</a></li>
+              <li><a class="dropdown-item" href="/restaurants/sort/category">類別 ( category )</a></li>
+              <li><a class="dropdown-item" href="/restaurants/sort/rating">評分 ( rating <i class="fas fa-star"></i> )</a></li>
+            </ul>
+          </div>
+      </div>
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
             value="{{keyword}}" aria-describedby="search-button">
@@ -13,27 +29,10 @@
         </div>
       </form>
     </div>
-  </div>
+  </div>  
 </div>
 
-<div class="create-button" style="position: absolute; right: 475px; top: 10px;">
-  <a class="navbar-brand fs-4" href="/restaurants/new">
-    <i class="far fa-plus-square"></i>
-  </a>
-</div>
 
-<div class="btn-group" style="position: absolute; right: 478px; top: 423px; z-index: 999;">
-  <button class="btn btn-dark bg-transparent text-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
-    aria-expanded="false">
-    排序方式
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="/restaurants/sort/A-Z">名稱 ( A <i class="fas fa-arrow-right"></i> Z )</a></li>
-    <li><a class="dropdown-item" href="/restaurants/sort/Z-A">名稱 ( Z <i class="fas fa-arrow-right"></i> A )</a></li>
-    <li><a class="dropdown-item" href="/restaurants/sort/category">類別 ( category )</a></li>
-    <li><a class="dropdown-item" href="/restaurants/sort/rating">評分 ( rating <i class="fas fa-star"></i> )</a></li>
-  </ul>
-</div>
 
 <!-- restaurant list -->
 <div class="container mt-5">

@@ -26,9 +26,14 @@
           餐廳清單
         </a>
         {{#if isAuthenticated}}
-        <a href="/users/logout" class="btn btn-outline-dark" style="position: relative; right: 0px;">Logout</a>
+        <div class="buttons">
+          <a href="/restaurants/new" class="create-button btn fs-4 me-4">
+            <i class="far fa-plus-square" style="color: #4592af;"></i>
+          </a>
+          <a href="/users/logout" class="btn btn-outline-dark">Logout</a>
+        </div>
         {{else}}
-        <a href="/users/login" class="btn btn-outline-dark" style="position: relative; right: 0px;">Login</a>
+        <a href="/users/login" class="btn btn-outline-dark">Login</a>
         {{/if}}
       </div>
     </nav>
