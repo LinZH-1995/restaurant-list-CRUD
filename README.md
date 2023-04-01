@@ -36,6 +36,14 @@ A simple restaurant list made by [Express](https://expressjs.com/) on [Node.js](
 **Search Restaurant**
 * type keyword of restaurant name/category in search bar - ( ***case insensitive*** )
 
+**Register**
+* click ```Register``` link to register an account
+
+**Login**
+* click ```Login``` buttton to login with your account
+* click ```Login by Facebook``` button to login by your facebook account
+* click ```Login by Google``` button to login by your google account
+
 ## Getting Started
 ### Install - Use Terminal
 
@@ -67,12 +75,13 @@ npm run dev   // Nodemon
 http://localhost:3000/
 ```
 #### 7. Login / Register
-**User1**
+##### **Users for test：**
+User1
 ```
 Email: user1@example.com
 Password: 12345678
 ```
-**User2**
+User2
 ```
 Email: user2@example.com
 Password: 12345678
