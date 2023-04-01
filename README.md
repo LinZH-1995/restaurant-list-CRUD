@@ -36,6 +36,14 @@ A simple restaurant list made by [Express](https://expressjs.com/) on [Node.js](
 **Search Restaurant**
 * type keyword of restaurant name/category in search bar - ( ***case insensitive*** )
 
+**Register**
+* click ```Register``` link to register an account
+
+**Login**
+* click ```Login``` buttton to login with your account
+* click ```Login by Facebook``` button to login by your facebook account
+* click ```Login by Google``` button to login by your google account
+
 ## Getting Started
 ### Install - Use Terminal
 
