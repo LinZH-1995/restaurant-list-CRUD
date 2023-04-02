@@ -42,7 +42,7 @@ router.post('/register', (req, res) => {
     .catch(err => console.log(err))
 })
 
-router.get('/logout', (req, res) => {
+router.get('/logout', (req, res, next) => {
   req.logout((err) => {
     if (err) { return next(err) }
 
