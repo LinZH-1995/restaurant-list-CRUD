@@ -53,7 +53,7 @@ git clone https://github.com/LinZH-1995/restaurant-list-CRUD.git
 ```
 #### 2. Open project directory
 ```
-cd restaurant-list
+cd restaurant-list-CRUD
 ```
 #### 3. Install package
 ```
